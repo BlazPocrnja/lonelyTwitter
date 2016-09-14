@@ -5,8 +5,8 @@ package ca.ualberta.cs.lonelytwitter;
  */
 public class angryMood extends mood implements MoodInterface {
 
-    public angryMood(String mood){
-        super(mood);
+    public angryMood(){
+        super("Angry");
     }
 
     @Override
