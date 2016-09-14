@@ -11,6 +11,8 @@ public abstract class mood {
     private String mood;
 
     public mood(String mood){
+        Date current = new Date();
+        this.date = current;
         this.mood = mood;
     }
 
@@ -18,6 +20,8 @@ public abstract class mood {
         this.date = date;
         this.mood = mood;
     }
+
+    public abstract String format();
 
     public void setDate(Date date){
         this.date = date;
