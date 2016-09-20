@@ -15,6 +15,7 @@ public abstract class Tweet {
     public Tweet(String message){
         this.message = message;
         moodList = new ArrayList<mood>();
+        this.date = new Date();
     }
 
     public Tweet(String message, Date date){
@@ -56,5 +57,10 @@ public abstract class Tweet {
     public List<mood> getMoods(){
         List<mood> tmp = new ArrayList<mood>(moodList);
         return tmp;
+    }
+
+    @Override
+    public String toString(){
+        return date.toString() + "|" + message;
     }
 }
