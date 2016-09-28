@@ -81,11 +81,16 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         cal.set(Calendar.MILLISECOND,0);
 
         Date d = cal.getTime();
-
+        //5:30 pm
         Tweet tweet1 = new NormalTweet("Made First",d);
-        TweetList list = new TweetList();
-        Tweet tweet2 = new NormalTweet("Made Second");
 
+        //6:30 pm
+        cal.set(Calendar.HOUR_OF_DAY,18);
+        d = cal.getTime();
+
+        Tweet tweet2 = new NormalTweet("Made Second", d);
+
+        TweetList list = new TweetList();
         list.add(tweet2);
         list.add(tweet1);
 
