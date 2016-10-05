@@ -3,9 +3,29 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by watts1 on 9/13/16.
+ * Defines what classes are considered "Tweetable"
+ * Must have a getMessage()
+ * Must have a getDate()
+ *
+ * @author Blaz
+ * @see Tweet
+ * @see TweetList
+ * @see ImportantTweet
+ * @see NormalTweet
+ * @see TweetTooLongException
  */
 public interface Tweetable {
+    /**
+     * Gets message.
+     *
+     * @return the message
+     */
     public String getMessage();
+
+    /**
+     * Gets date.
+     *
+     * @return the date
+     */
     public Date getDate();
 }
