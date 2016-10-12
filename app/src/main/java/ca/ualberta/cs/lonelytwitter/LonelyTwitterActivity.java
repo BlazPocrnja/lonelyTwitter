@@ -35,6 +35,8 @@ public class LonelyTwitterActivity extends Activity {
 	private ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
 	private ArrayAdapter<Tweet> adapter;
 
+	public final static String TWEET_STRING = "NULL";
+
 	public ListView getOldTweetsList(){
 		return oldTweetsList;
 	}
@@ -77,7 +79,9 @@ public class LonelyTwitterActivity extends Activity {
 					public void onItemClick(AdapterView<?> parent, View view,
 											int position ,long id){
 						Intent intent = new Intent(activity, EditTweetActivity.class);
+						intent.putExtra(TWEET_STRING, parent.getItemAtPosition(position).toString());
 						startActivity(intent);
+
 					}
 
 				});
