@@ -30,9 +30,16 @@ public class ElasticsearchTweetController {
 
             ArrayList<NormalTweet> tweets = new ArrayList<NormalTweet>();
 
+            //String search_string = "{\"from\" : 0, \"size\": 10000}";
+            String search_string = "{\"from\" : 0, \"size\" : 10000, \"query\" : {\"match\" : {\"message\": \""+search_parameters[0] +"\"}}}";
+
+            if(search_parameters[0].equals("")){
+                search_string = "";
+            }
+
             // assume that search_parameters[0] is the only search term we are interested in using
-            Search search = new Search.Builder(search_parameters[0])
-                    .addIndex("testing")
+            Search search = new Search.Builder(search_string)
+                    .addIndex("f16t08")
                     .addType("tweet")
                     .build();
 
@@ -63,7 +70,7 @@ public class ElasticsearchTweetController {
             verifySettings();
 
             for (NormalTweet tweet: tweets) {
-                Index index = new Index.Builder(tweet).index("testing").type("tweet").build();
+                Index index = new Index.Builder(tweet).index("f16t08").type("tweet").build();
 
                 try {
                     DocumentResult result = client.execute(index);
